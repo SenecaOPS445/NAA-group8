@@ -18,32 +18,27 @@ The tool is designed with the following steps:
    - Data is logged at regular intervals in either JSON or text format.
    - A report generation function provides a summary of system health over a specified period by analyzing logged data.
 
-How the Program Works
-Gathering Required Input
+## How the Program Works
 
-The tool gathers input by executing platform-specific commands:
-CPU and Memory: Uses top, free, or vmstat on Unix/Linux systems, and systeminfo or tasklist on Windows.
-Disk Space: Uses os.statvfs() for Unix systems, and dir or wmic for Windows.
-Network Activity: Uses netstat across both Unix/Linux and Windows.
-Accomplishing Requirements
+1. **Gathering Required Input**
+   - The tool gathers input by executing platform-specific commands:
+     - **CPU and Memory**: Uses `top`, `free`, or `vmstat` on Unix/Linux systems, and `systeminfo` or `tasklist` on Windows.
+     - **Disk Space**: Uses `os.statvfs()` for Unix systems, and `dir` or `wmic` for Windows.
+     - **Network Activity**: Uses `netstat` across both Unix/Linux and Windows.
 
-Each metric is collected, parsed, and checked against the set threshold. Alerts are triggered if any threshold is breached.
-Logging functions store data at regular intervals, and a reporting function analyzes this data for system health trends.
-Output Presentation
+2. **Accomplishing Requirements**
+   - Each metric is collected, parsed, and checked against the set threshold. Alerts are triggered if any threshold is breached.
+   - Logging functions store data at regular intervals, and a reporting function analyzes this data for system health trends.
 
-Alerts are printed to the console in real-time.
-Logged data is saved in JSON or text format based on user preference.
-Summary reports are generated from logged data, providing an overview of system health over time.
-Arguments and Options
+3. **Output Presentation**
+   - Alerts are printed to the console in real-time.
+   - Logged data is saved in JSON or text format based on user preference.
+   - Summary reports are generated from logged data, providing an overview of system health over time.
 
-Thresholds, logging intervals, and output formats can be customized via command-line arguments to suit different monitoring needs.
-Challenges
+4. **Arguments and Options**
+   - Thresholds, logging intervals, and output formats can be customized via command-line arguments to suit different monitoring needs.
 
-Parsing platform-specific command outputs accurately is challenging, as each operating system has unique formats.
-Ensuring compatibility across Unix/Linux and Windows adds complexity to the codebase.
-Configuring alerts and logging functions to handle edge cases, such as command failures or unexpected output, requires thorough testing.
-Example Output
-Console Alert Example
-
-ALERT: CPU usage has exceeded 80% threshold. Current usage: 85%.
-ALERT: Memory usage has exceeded 75% threshold. Current usage: 78%.
+5. **Challenges**
+   - Parsing platform-specific command outputs accurately is challenging, as each operating system has unique formats.
+   - Ensuring compatibility across Unix/Linux and Windows adds complexity to the codebase.
+   - Configuring alerts and logging functions to handle edge cases, such as command failures or unexpected output, requires thorough testing.
