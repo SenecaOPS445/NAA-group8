@@ -5,7 +5,7 @@ import time
 
 def send_email_alert(recipient_email, subject, body):
     # Email configuration
-    sender_email = "netflix@abrarhossain.com"  # Hostinger email account
+    sender_email = "ops445g8@abrarhossain.com"  # Hostinger email account
     sender_password = "#####" # Hostinger email's password
     smtp_server = "smtp.hostinger.com"
     smtp_port = 465
