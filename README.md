@@ -35,4 +35,5 @@ This Python program monitors the system's **CPU** and **RAM usage** in real time
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/SenecaOPS445/NAA-group8.git
-   cd 
+   cd NAA-group8
+   python3 ./assignment2.py
