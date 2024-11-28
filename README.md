@@ -25,7 +25,7 @@ This Python program monitors the system's **CPU** and **RAM usage** in real time
 ## 📋 Requirements
 
 - Python 3.6 or later
-- **psutil** library for system monitoring
+- **os** library for system monitoring
 - A Hostinger email account for sending alerts
 
 ---
