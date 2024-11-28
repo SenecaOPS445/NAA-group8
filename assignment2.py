@@ -35,7 +35,7 @@ def ram_usage():
 def email_alert(recipient_email, subject, body):
     # Send an alert email using Hostinger SMTP
     sender_email = "ops445g8@abrarhossain.com"
-    sender_password = "###"
+    sender_password = "B!ngo123@@"
     smtp_server = "smtp.hostinger.com"
     smtp_port = 465
 
