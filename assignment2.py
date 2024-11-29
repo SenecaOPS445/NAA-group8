@@ -21,7 +21,6 @@ def cpu_usage():
         print(f"Error fetching CPU usage: {e}")
         return 0.0
 
-
 def ram_usage():
     # Get RAM usage using /proc/meminfo
     try:
@@ -37,7 +36,6 @@ def ram_usage():
     except Exception as e:
         print(f"Error fetching RAM usage: {e}")
         return 0.0
-
 
 def email_alert(recipient_email, subject, body):
     # Send an alert email using Hostinger SMTP
@@ -61,7 +59,6 @@ def email_alert(recipient_email, subject, body):
             print(f"Alert email sent to {recipient_email}.")
     except Exception as e:
         print(f"Failed to send email: {e}")
-
 
 def monitor_system(alert_user, recipient_email=None):
     # Monitor CPU and RAM usage and send alerts if thresholds are breached
@@ -107,7 +104,6 @@ def monitor_system(alert_user, recipient_email=None):
     except KeyboardInterrupt:
         print("\nMonitoring stopped by user.")
 
-
 def main():
     # Main entry point of the program
     print("Welcome to the System Monitoring Program!")
@@ -122,7 +118,6 @@ def main():
         monitor_system(alert_user=False)
     else:
         print("Invalid input. Exiting program.")
-
 
 if __name__ == "__main__":
     main()
