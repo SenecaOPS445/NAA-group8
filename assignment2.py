@@ -8,10 +8,14 @@ def cpu_usage():
     # Get CPU usage using /proc/stat
     try:
         with open("/proc/stat", "r") as f:
-            cpu_line = f.readline()
-            cpu_times = list(map(int, cpu_line.split()[1:]))
-            idle_time = cpu_times[3]
-            total_time = sum(cpu_times)
+            cpu_line = f.readline()  # Read the first line with CPU stats
+            cpu_values = cpu_line.split()[1:]  # Skip the 'cpu' label and get the values
+            
+            cpu_times = [int(value) for value in cpu_values]
+            
+            idle_time = cpu_times[3]  # Idle time is the fourth value
+            total_time = sum(cpu_times)  # Total time is the sum of all values
+            
         return (1 - idle_time / total_time) * 100
     except Exception as e:
         print(f"Error fetching CPU usage: {e}")
@@ -22,10 +26,13 @@ def ram_usage():
     # Get RAM usage using /proc/meminfo
     try:
         with open("/proc/meminfo", "r") as f:
-            lines = f.readlines()
-            mem_total = int(lines[0].split()[1])  # Total memory
-            mem_available = int(lines[2].split()[1])  # Available memory
-        mem_used = mem_total - mem_available
+            # Read only the required lines
+            mem_total = int(f.readline().split()[1])  # Total memory
+            mem_free = int(f.readline().split()[1])  # Free memory
+            f.readline()
+        
+        # Calculate used memory
+        mem_used = mem_total - mem_free
         return (mem_used / mem_total) * 100
     except Exception as e:
         print(f"Error fetching RAM usage: {e}")
